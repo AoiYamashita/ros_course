@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="./../../src/pages.css">
+    <title>Git 実践編</title>
+</head>
+<body>
+    <h1>Git 実践編</h1>
+    <h2>ローカルレポジトリでの編集</h2>
+    <p>ローカルレポジトリ上で何かしらの編集を行います<br>
+        まずは編集を行うためのテキストファイルを作成します。
+    </p>
+    <code>cd レポジトリ名<br>
+        touch practice.txt</code>
+    <p>今回は「practice.txt」というテキストファイルを作成します<br>
+        さらに作成したファイルに何かしらの編集を行うためコードエディタで編集を行います<br>
+        今回はcode spaceでの編集を前提としているのでvscodeで編集を行います
+    </p>
+    <code>code practice.txt</code>
+    <p>何かしら編集を行ったら保存しましょう</p>
+    <h2>リモートレポジトリの確認</h2>
+    <p>github上で現在cloneしているレポジトリを見てみましょう<br>
+        まだ、なんの変化も起こっていないはずです
+    </p>
+    <h2>リモートレポジトリに変更の適応</h2>
+    <p>変更の記録</p>
+    <code>git add .</code>
+    <p>ローカルリポジトリに作業を登録</p>
+    <code>git commit -m "コミットメッセージ"</code>
+    <p>ローカルリポジトリをリモートリポジトリにアップロード</p>
+    <code>git push</code>
+    <h2>リモートレポジトリの確認</h2>
+    <p>これまでの作業を正しく行うことができればpractice.txtが追加されているはずです</p>
+</body>
+</html>
