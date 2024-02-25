@@ -45,28 +45,23 @@
     <code>cd mypkg<br></code>
     <code>touch talker.py<br></code>
     <code>vi talker.py</code>
-
     <img src="../../imgs/talker_py.png" width="700">
-    
     <h2>talkerの登録</h2>
     <p>まずtalkerで使ったモジュールをpackageに登録しましょう</p>
-    
     <code>cd ../<br></code>
     <code>vi package.xml<br></code>
-    
-    <img>
-
+    <img src="../../imgs/package_xml_talker.png" width="900">
     <p>ros2に今書いたtalker.pyを登録しましょう</p>
     <code>vi setup.py</code>
-
-    <img>
-
+    <img src="../../imgs/setup_py_talker.png" width="600">
     <h2>依存パッケージのインストール</h2>
     <p>rosのpackageに依存するパッケージのインストールを行います<br>
         以下のコマンドを実行することで依存パッケージのインストールができます
     </p>
     <code>rosdep install -i --from-paths ~/ros2_ws/src</code>
-
+    <p>#All required rosdeps installed successfully<br>
+        と出れば成功です
+    </p>
     <h2>packageのbuild</h2>
     <code>cd ~/ros2_ws<br></code>
     <code>colcon build<br></code>
@@ -74,5 +69,37 @@
     <h2>talker nodeの動作チェック</h2>
     <p>次のコマンドでtalkerを実行することができます</p>
     <code>ros2 run mypkg talker</code>
+    <img src="../../imgs/talker_output.png" width="600">
+    <p>このように出力されていれば成功です</p>
+    <h2>listenerの記述</h2>
+    <p>listenerはtalkerの配信したメッセージを受け取り出力するだけのコードです<br>
+        なので作るものとしては単純なsubscriberです
+    </p>
+    <code>cd src/mypkg/mypkg<br></code>
+    <code>touch listener.py<br></code>
+    <code>vi listener.py</code>
+    <img src="../../imgs/listener_py.png" width="700">
+    <h2>listenerの登録</h2>
+    <p>talkerと使ったモジュールは同じなのでpackage.xmlに追記することはないが<br>
+        setup.pyにlistenerの登録を行う必要がある
+    </p>
+    <code>cd ../<br></code>
+    <code>vi setup.py</code>
+    <img src="../../imgs/setup_py_listener.png" width="600">
+    <h2>packageのbuild</h2>
+    <code>cd ~/ros2_ws<br></code>
+    <code>colcon build<br></code>
+    <code>source ~/.bashrc</code>
+    <h2>talkerとlistenerの動作確認</h2>
+    <p>二つの端末を立ち上げtalkerとlistenerでmsgの受け渡しができていることを確認しましょう<br>
+        端末１
+    </p>
+    <code>ros2 run mypkg talker</code>
+    <p>端末２</p>
+    <code>ros2 run mypkg listener</code>
+    <p>下のようになっていればうまくいっています<br>
+        (gifファイルの関係上スロー再生のようになっています)
+    </p>
+    <img src="../../imgs/Talker_Listener.gif" width="600">
 </body>
 </html>
