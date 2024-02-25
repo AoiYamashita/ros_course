@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="./../../src/pages.css">
+    <title>ros2 環境構築編</title>
+</head>
+<body>
+    <h1>ros2 環境構築編</h1>
+    <h2>Docker での環境構築</h2>
+    <p>ros2は多くのパッケージをインストールするためubuntu上に直接インストールすると他に構築されている開発環境に影響を与える可能性が高い<br>
+        そのため今回はDockerを用いた環境構築を行うことする
+    </p>
+    <h2>なぜDockerを使うのか</h2>
+    <p>仮想環境を構築し、その上で開発環境を整えることでベースとなる環境の汚染を防ぐことができるため</p>
+    <h2>Docker imageのbuild</h2>
+    <p>ros2 のDocker imageは多く出回っているがその多くが不必要なパッケージが混入しているため、今回は必要最小限のDocker imageにするためにimageのbuildから行う<br>
+        まず、<a href="https://github.com/AoiYamashita/ros2_docker">ros2のイメージレポジトリ</a>をcloneしましょう
+    </p>
+    <h2>Dockerのインストール</h2>
+    <p>dockerを使うためにDockerのインストールを行います<br>
+        先ほどcloneしたレポジトリにdockerのインストール用bashが含まれていますので見つけて実行してください<br>
+        うまくいけば以下のコマンドでDockerのversionを確認できます
+    </p>
+    <code>docker --version</code>
+    <h2>Docker imageのbuild</h2>
+    <p>ros2_dockerディレクトリ下で以下のコマンドを使いdockerのイメージのbuildをしましょう<br>
+        (今後dockerの操作を行う際にパーミッションエラーが発生することがありますがその際は管理者権限で実行すると改善することがあります)
+    </p>
+    <code>docker build -t ros2 .</code>
+    <p>インターネット環境によりますが30分程度で完了します</p>
+    <h2>docker imageの確認</h2>
+    <p>docker imageのbuildが成功したか確認しましょう</p>
+    <code>docker image list</code>
+    <p>REPOSITORYの欄にros2があれば成功しています</p>
+    <h2>docker imageの実行</h2>
+    <p>dokcerのimageのbuildが終わったらimageを実行しましょう<br>
+        以下のコードでdockerのimageの実行が行えます
+    </p>
+    <code>docker run --name ros2_container -it ros2 /bin/bash</code>
+    <p>dockerを終了する際はexitコマンドを実行するとdockerのcontainerから抜け出しcontainerを止めることができます<br>
+        また、exitコマンドで抜けるとdockerのcontainerが終了するのでもう一度入るときにはdockerのcontainerの起動を行う必要があります
+    </p>
+    <h2>dockerの再起動</h2>
+    <p>dockerのcontainerからexitコマンドで抜けた際にはcontainerの再起動を行う必要があります<br>
+        以下のコマンドでcontainerの再起動を行いましょう
+    </p>
+    <code>docker start ros2</code>
+    <p>再起動ができたら再起動したcontainerにアクセスしましょう</p>
+    <code>docker exec -it ros2 /bin/bash</code>
+    <p>うまくいけばdocker内に入ることができるはずです</p>
+</body>
+</html>
