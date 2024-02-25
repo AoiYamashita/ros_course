@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="./../../src/pages.css">
+    <title>ros2 実践編</title>
+</head>
+<body>
+    <h1>ros2 実践編</h1>
+    <h2>環境の整備</h2>
+    <p>dockerの環境構築が終わっていない人は<a href="pages/ros2/ros2_docker.html">環境構築編</a>を見てdockerの環境構築を済ませてください<br>
+        また、ros2_wsをgitに登録しておきましょう
+    </p>
+    <h2>packageの作成</h2>
+    <p>dockerを起動するとros2_wsといわれるディレクトリがあると思います<br>
+        そのディレクトリ内のsrcディレクトリ内で次のコマンドを実行することでpythonのmypkgという名前のpackageを作成できます
+    </p>
+    <code>ros2 pkg create mypkg --build-type ament_python</code>
+</body>
+</html>
