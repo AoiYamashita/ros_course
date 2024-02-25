@@ -8,6 +8,27 @@
 </head>
 <body>
     <h1>ros2 概念編</h1>
-    <h2></h2>
+    <h2>package</h2>
+    <p>ros2上で動かすアプリケーション的なものです<br>
+        ros2を使う際にはこれらのpackageを作成し動かします
+    </p>
+    <h2>node</h2>
+    <p>package上にあるコード同士の通信に使われるものです</p>
+    <h2>ros2の構造</h2>
+    <p>ros2はlinuxOS上で動くミドルウェアです<br>
+        そのためイメージ的にはubuntuの上にros2がありそのros2上でros2のpackageが動くという形式になっています
+    </p>
+    <img src="../../imgs/ros2_pkg_node.png" width="600">
+    <h2>topic</h2>
+    <p>node間の通信を表します</p>
+    <h2>publisher</h2>
+    <p>node上に作りtopicにメッセージを配信します</p>
+    <h2>subscriber</h2>
+    <p>node上に作りtopicにメッセージを受信します</p>
+    <img src="../../imgs/ros2_topic.png" width = 900>
+    <h2>service</h2>
+    <p>node間通信の一種です<br>
+        client,server通信のような動きを行います
+    </p>
 </body>
 </html>
