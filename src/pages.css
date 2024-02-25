@@ -23,6 +23,11 @@ p{
     margin: 20px;
 }
 
+img{
+    margin: 20px;
+    display: block;
+}
+
 code{
     background-color: rgb(0, 0, 0);
     color: white;

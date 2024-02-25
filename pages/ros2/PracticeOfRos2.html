@@ -10,12 +10,69 @@
     <h1>ros2 実践編</h1>
     <h2>環境の整備</h2>
     <p>dockerの環境構築が終わっていない人は<a href="pages/ros2/ros2_docker.html">環境構築編</a>を見てdockerの環境構築を済ませてください<br>
-        また、ros2_wsをgitに登録しておきましょう
+        また、ros2_wsをgitに登録しておきましょう<br>
+        githubで空のレポジトリを作成し以下のコマンドでリモートレポジトリとローカルレポジトリを紐づけしましょう
     </p>
+    <code>cd ~/ros2_ws<br></code>
+    <code>git init<br></code>
+    <code>git remote add origin "repositoryのurl"<br></code>
+    <code>git add .<br></code>
+    <code>git commit -m "first commit"<br></code>
+    <code>git push --set-upstream origin main<br></code>
     <h2>packageの作成</h2>
     <p>dockerを起動するとros2_wsといわれるディレクトリがあると思います<br>
         そのディレクトリ内のsrcディレクトリ内で次のコマンドを実行することでpythonのmypkgという名前のpackageを作成できます
     </p>
+    <code>cd /src<br></code>
     <code>ros2 pkg create mypkg --build-type ament_python</code>
+    <h2>ライセンス当の設定</h2>
+    <p>ros2はpackageを公開することを想定しているためライセンスや署名をしていないと警告が出ます<br>
+        そのためros2のpackageを作成したらそれらを記述しておきましょう<br>
+        記述するのはpackage.xmlとsetup.pyになります<br>
+        今回はvimによる編集を想定しています
+    </p>
+    <code>cd mypkg<br></code>
+    <code>vi package.xml</code>
+    <img src="../../imgs/package_xml.png" width = 900>
+    <code>vi setup.py</code>
+    <img src="../../imgs/setup_py.png" width="500">
+    <h1>nodeの作成</h1>
+    <p>今回はros2のデモとして作成することが多いtalkerとlistenerを作成します</p>
+    <h2>talkerの記述</h2>
+    <p>talkerは単純に数字を増やしていきそれをtopicに配信するだけのコードとなります<br>
+        なので作るものとしては単純なpublisherです
+    </p>
+    <code>cd mypkg<br></code>
+    <code>touch talker.py<br></code>
+    <code>vi talker.py</code>
+
+    <img src="../../imgs/talker_py.png" width="700">
+    
+    <h2>talkerの登録</h2>
+    <p>まずtalkerで使ったモジュールをpackageに登録しましょう</p>
+    
+    <code>cd ../<br></code>
+    <code>vi package.xml<br></code>
+    
+    <img>
+
+    <p>ros2に今書いたtalker.pyを登録しましょう</p>
+    <code>vi setup.py</code>
+
+    <img>
+
+    <h2>依存パッケージのインストール</h2>
+    <p>rosのpackageに依存するパッケージのインストールを行います<br>
+        以下のコマンドを実行することで依存パッケージのインストールができます
+    </p>
+    <code>rosdep install -i --from-paths ~/ros2_ws/src</code>
+
+    <h2>packageのbuild</h2>
+    <code>cd ~/ros2_ws<br></code>
+    <code>colcon build<br></code>
+    <code>source ~/.bashrc</code>
+    <h2>talker nodeの動作チェック</h2>
+    <p>次のコマンドでtalkerを実行することができます</p>
+    <code>ros2 run mypkg talker</code>
 </body>
 </html>
