@@ -14,9 +14,28 @@
     </p>
     <h1>dockerを使う上で知っておくべき概念</h1>
     <h2>Container</h2>
-    <a>先ほどの説明にあったようにアプリケーションや実行環境を一括りにしたものだという認識で今回は大丈夫です</a>
+    <p>先ほどの説明にあったようにアプリケーションや実行環境を一括りにしたものだという認識で今回は大丈夫です</p>
     <h2>image</h2>
-    <a>containerを構成する要素をまとめたもの又は構成の一要素</a>
-    <h1></h1>
+    <p>containerを構成する要素をまとめたもの又は構成の一要素</p>
+    <h2>Dockerfile</h2>
+    <p>image 内の要素について記述したdocker専用ファイル</p>
+    <h2>build</h2>
+    <p>Dockerfileからimageを作ること</p>
+    <h2>imageID/containerID</h2>
+    <p>dockerのimage,containerに個別に付けられるID</p>
+    <h1>Dockerのよく使うコマンド</h1>
+    <h2>docker image list</h2>
+    <p>buildされたimageのlistを表示する</p>
+    <h2>docker ps</h2>
+    <p>起動しているcontainerの一覧を見ることができる<br>
+        -a オプションを付けると停止している物も見れる
+    </p>
+    <h2>docker build directory名</h2>
+    <p>directory内にあるDockerfileのbuild<br>
+        -t オプションを付けることでimageの名前を決められる</p>
+    <h2>docker start/stop container名/containerID</h2>
+    <p>containerの起動、停止</p>
+    <h2>docker exec container名/containerID directory</h2>
+    <p>起動中のcontainerにアクセスする</p>
 </body>
 </html>
