@@ -46,9 +46,9 @@
     <p>dockerのcontainerからexitコマンドで抜けた際にはcontainerの再起動を行う必要があります<br>
         以下のコマンドでcontainerの再起動を行いましょう
     </p>
-    <code>docker start ros2</code>
+    <code>docker start ros2_container</code>
     <p>再起動ができたら再起動したcontainerにアクセスしましょう</p>
-    <code>docker exec -it ros2 /bin/bash</code>
+    <code>docker exec -it ros2_container /bin/bash</code>
     <p>うまくいけばdocker内に入ることができるはずです</p>
     <h2>ssh鍵の登録</h2>
     <p>docker上には新たなubuntuを立てているのでwslとは異なるssh鍵の登録が必要になります<br>
